@@ -1,0 +1,116 @@
+@page "/chat"
+@rendermode InteractiveServer
+@implements IAsyncDisposable
+
+@using Radzen
+@using Radzen.Blazor
+@using Microsoft.AspNetCore.SignalR.Client
+@using ChatMessage = Radzen.Blazor.ChatMessage
+@inject NavigationManager Navigation
+
+<PageTitle>Chat</PageTitle>
+
+<RadzenStack Gap="1rem" class="rz-p-4">
+    <RadzenText TextStyle="TextStyle.H4">Simple SignalR Chat</RadzenText>
+
+    @if (!joined)
+    {
+        <RadzenCard Style="max-width:420px;">
+            <RadzenStack Gap="1rem">
+                <RadzenText TextStyle="TextStyle.Body1">Enter your name</RadzenText>
+                <RadzenTextBox @bind-Value="userName" Placeholder="Your name" Style="width:100%;" />
+                <RadzenButton Text="Join Chat"
+                              Click="@JoinChat"
+                              Disabled="@string.IsNullOrWhiteSpace(userName)" />
+            </RadzenStack>
+        </RadzenCard>
+    }
+    else
+    {
+        <RadzenAlert AlertStyle="AlertStyle.Info" ShowIcon="true">
+            You are chatting as <b>@userName</b>
+        </RadzenAlert>
+
+        <RadzenChat CurrentUserId="@currentUserId"
+                    Users="@users"
+                    Messages="@messages"
+                    MessageSent="@OnMessageSent"
+                    Placeholder="Type a message..."
+                    EmptyMessage="No messages yet. Start a conversation!"
+                    Style="height:500px; max-width:900px;" />
+    }
+</RadzenStack>
+
+@code {
+    private HubConnection? hubConnection;
+
+    private string userName = "";
+    private bool joined = false;
+    private string currentUserId = "";
+
+    private List<ChatUser> users = new();
+    private List<ChatMessage> messages = new();
+
+    private async Task JoinChat()
+    {
+        if (string.IsNullOrWhiteSpace(userName))
+            return;
+
+        currentUserId = userName.Trim();
+
+        users = new List<ChatUser>
+        {
+            new ChatUser { Id = currentUserId, Name = currentUserId }
+        };
+
+        hubConnection = new HubConnectionBuilder()
+            .WithUrl(Navigation.ToAbsoluteUri("/chathub"))
+            .WithAutomaticReconnect()
+            .Build();
+
+        hubConnection.On<string, string, DateTime>("ReceiveMessage", (senderName, content, time) =>
+        {
+            if (!users.Any(u => u.Id == senderName))
+            {
+                users.Add(new ChatUser
+                {
+                    Id = senderName,
+                    Name = senderName
+                });
+            }
+
+            var msg = new ChatMessage
+            {
+                UserId = senderName,
+                Content = content,
+                Timestamp = time
+            };
+
+            messages.Add(msg);
+
+            InvokeAsync(StateHasChanged);
+        });
+
+        await hubConnection.StartAsync();
+        joined = true;
+    }
+
+    private async Task OnMessageSent(ChatMessage message)
+    {
+        if (hubConnection is null)
+            return;
+
+        if (string.IsNullOrWhiteSpace(message.Content))
+            return;
+
+        await hubConnection.SendAsync("SendMessage", currentUserId, message.Content);
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (hubConnection is not null)
+        {
+            await hubConnection.DisposeAsync();
+        }
+    }
+}

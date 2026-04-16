@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "YqMkC5wMyyA=",
+  "success": true,
+  "projectFilePath": "/Users/mohammad/RiderProjects/SimpleChatApp/SimpleChatApp/SimpleChatApp.csproj",
+  "expectedPackageFiles": [
+    "/Users/mohammad/.nuget/packages/microsoft.aspnetcore.app.internal.assets/10.0.5/microsoft.aspnetcore.app.internal.assets.10.0.5.nupkg.sha512",
+    "/Users/mohammad/.nuget/packages/microsoft.aspnetcore.http.connections.client/10.0.6/microsoft.aspnetcore.http.connections.client.10.0.6.nupkg.sha512",
+    "/Users/mohammad/.nuget/packages/microsoft.aspnetcore.signalr.client/10.0.6/microsoft.aspnetcore.signalr.client.10.0.6.nupkg.sha512",
+    "/Users/mohammad/.nuget/packages/microsoft.aspnetcore.signalr.client.core/10.0.6/microsoft.aspnetcore.signalr.client.core.10.0.6.nupkg.sha512",
+    "/Users/mohammad/.nuget/packages/radzen.blazor/10.2.3/radzen.blazor.10.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}

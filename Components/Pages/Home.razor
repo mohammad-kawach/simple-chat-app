@@ -1,0 +1,15 @@
+﻿@page "/"
+@inject NavigationManager Nav
+@rendermode InteractiveServer
+
+<h3>Home</h3>
+
+<button @onclick="GoToChat">Go to Chat</button>
+
+@code {
+    void GoToChat()
+    {
+        Console.WriteLine("CLICKED");
+        Nav.NavigateTo("/chat");
+    }
+}

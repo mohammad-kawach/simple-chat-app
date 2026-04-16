@@ -1,0 +1,91 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "SimpleChatApp/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.SignalR.Client": "10.0.6",
+          "Radzen.Blazor": "10.2.3"
+        },
+        "runtime": {
+          "SimpleChatApp.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Http.Connections.Client/10.0.6": {
+        "runtime": {
+          "lib/net10.0/Microsoft.AspNetCore.Http.Connections.Client.dll": {
+            "assemblyVersion": "10.0.6.0",
+            "fileVersion": "10.0.626.17701"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.SignalR.Client/10.0.6": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Connections.Client": "10.0.6",
+          "Microsoft.AspNetCore.SignalR.Client.Core": "10.0.6"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.AspNetCore.SignalR.Client.dll": {
+            "assemblyVersion": "10.0.6.0",
+            "fileVersion": "10.0.626.17701"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.SignalR.Client.Core/10.0.6": {
+        "runtime": {
+          "lib/net10.0/Microsoft.AspNetCore.SignalR.Client.Core.dll": {
+            "assemblyVersion": "10.0.6.0",
+            "fileVersion": "10.0.626.17701"
+          }
+        }
+      },
+      "Radzen.Blazor/10.2.3": {
+        "runtime": {
+          "lib/net10.0/Radzen.Blazor.dll": {
+            "assemblyVersion": "10.2.3.0",
+            "fileVersion": "10.2.3.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SimpleChatApp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.AspNetCore.Http.Connections.Client/10.0.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-neN3h4JIzp6zqYuXRdhrSXRSdi6EHaHEgZqol5lcXKiWZEJ2KfQhwKyrm+tFe7iMx3+kGDq+qUB9aiU+1nAELA==",
+      "path": "microsoft.aspnetcore.http.connections.client/10.0.6",
+      "hashPath": "microsoft.aspnetcore.http.connections.client.10.0.6.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.SignalR.Client/10.0.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2HrBpZhooHodyJNmpvzH6zQcSTCMgFcCrAEIjhTJ1ct5wKTAtyveas1Mb9CZT5XUshd0M5XF+XvCB0Z52fEENQ==",
+      "path": "microsoft.aspnetcore.signalr.client/10.0.6",
+      "hashPath": "microsoft.aspnetcore.signalr.client.10.0.6.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.SignalR.Client.Core/10.0.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bXlXE6cs9P6Qja9ScuNeJrStBMJORDF009y83oo2DJX1z4DUUApZojgm/OkHs8IKm75PTfukK33yDzctDlEInw==",
+      "path": "microsoft.aspnetcore.signalr.client.core/10.0.6",
+      "hashPath": "microsoft.aspnetcore.signalr.client.core.10.0.6.nupkg.sha512"
+    },
+    "Radzen.Blazor/10.2.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-L5Lo1GCCrJ6IPiRbXsJ4/cNRJXuwbSCLfLjcio/RMTH4HA2VNZx4fFw/IiIdCB0yjxy6NTdTGonNzUXdhiqGYg==",
+      "path": "radzen.blazor/10.2.3",
+      "hashPath": "radzen.blazor.10.2.3.nupkg.sha512"
+    }
+  }
+}
