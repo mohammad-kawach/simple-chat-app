@@ -39,7 +39,7 @@ app.Run();
 
 using Radzen;
 using SimpleChatApp.Components;
-using SimpleChatApp.Hubs;
+//using SimpleChatApp.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -47,7 +47,7 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddRadzenComponents();
-builder.Services.AddSignalR();
+//builder.Services.AddSignalR();
 
 var app = builder.Build();
 
@@ -64,6 +64,6 @@ app.UseAntiforgery();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
-app.MapHub<ChatHub>("/chathub");
+//app.MapHub<ChatHub>("/chathub");
 
 app.Run();

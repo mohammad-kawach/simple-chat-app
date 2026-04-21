@@ -121,3 +121,4 @@
 /Users/mohammad/RiderProjects/SimpleChatApp/SimpleChatApp/obj/Debug/net10.0/compressed/6xb9o06z95-{0}-6k9qx653br-6k9qx653br.gz
 /Users/mohammad/RiderProjects/SimpleChatApp/SimpleChatApp/obj/Debug/net10.0/compressed/t2tvocn0z4-{0}-9meuuabozh-9meuuabozh.gz
 /Users/mohammad/RiderProjects/SimpleChatApp/SimpleChatApp/obj/Debug/net10.0/SimpleCh.FD9EE2D1.Up2Date
+/Users/mohammad/RiderProjects/SimpleChatApp/SimpleChatApp/obj/Debug/net10.0/SimpleChatApp.sourcelink.json

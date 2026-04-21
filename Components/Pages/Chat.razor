@@ -64,10 +64,12 @@
         };
 
         hubConnection = new HubConnectionBuilder()
-            .WithUrl(Navigation.ToAbsoluteUri("/chathub"))
+            //.WithUrl(Navigation.ToAbsoluteUri("/chathub"))
+            .WithUrl("http://localhost:5298/chathub")
             .WithAutomaticReconnect()
             .Build();
 
+        
         hubConnection.On<string, string, DateTime>("ReceiveMessage", (senderName, content, time) =>
         {
             if (!users.Any(u => u.Id == senderName))
@@ -87,11 +89,11 @@
             };
 
             messages.Add(msg);
-
             InvokeAsync(StateHasChanged);
         });
 
         await hubConnection.StartAsync();
+        await hubConnection.SendAsync("Register", currentUserId);
         joined = true;
     }
 
@@ -103,7 +105,8 @@
         if (string.IsNullOrWhiteSpace(message.Content))
             return;
 
-        await hubConnection.SendAsync("SendMessage", currentUserId, message.Content);
+        //await hubConnection.SendAsync("SendMessage", currentUserId, message.Content);
+        await hubConnection.SendAsync("SendPublicMessage", currentUserId, message.Content);
     }
 
     public async ValueTask DisposeAsync()
