@@ -65,7 +65,9 @@
 
         hubConnection = new HubConnectionBuilder()
             //.WithUrl(Navigation.ToAbsoluteUri("/chathub"))
-            .WithUrl("http://localhost:5298/chathub")
+            //.WithUrl("http://localhost:5298/chathub")
+            // https://chatserver-scxu.onrender.com/
+            .WithUrl("https://chatserver-scxu.onrender.com/chathub")
             .WithAutomaticReconnect()
             .Build();
 
